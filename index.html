@@ -9,8 +9,9 @@
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: #ffffff; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f8f9fa; font-family: 'Segoe UI', sans-serif; }
 
+        /* --- تنظیمات هدر --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -31,12 +32,12 @@
             min-width: 0;
         }
 
-        /* --- سایز پایه دسکتاپ (بزرگ‌تر شد) --- */
+        /* سایز پایه دسکتاپ (لوگو) */
         .logo-img { 
             height: 40px; 
             width: auto; 
             display: block;
-            max-width: 280px; /* محدودیت عرض برای جلوگیری از کشیدگی در صفحات عریض */
+            max-width: 280px;
             object-fit: contain;
         }
 
@@ -64,8 +65,9 @@
             transform: scale(1.1) translateY(-2px);
         }
 
-        .icon-user { font-size: 26px; }
-        .icon-house { font-size: 28px; }
+        /* کوچک‌تر کردن آیکون خانه در دسکتاپ */
+        .icon-user { font-size: 24px; }
+        .icon-house { font-size: 22px; } 
 
         /* --- منوی سه خطی زاویه‌دار --- */
         .sharp-hamburger {
@@ -118,8 +120,28 @@
 
         .mobile-nav .nav-link:hover { color: #3a4ab0; }
 
+        /* --- بنر تصویری جدید (بلافاصله بعد از هدر) --- */
+        .hero-banner {
+            width: 100%;
+            margin-top: 15px; /* فاصله کمی از هدر */
+            padding: 0 20px; /* کمی فاصله از کناره‌ها برای زیبایی */
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            max-width: 1200px; /* حداکثر عرض برای مانیتورهای بزرگ */
+            height: auto;
+            max-height: 500px; /* محدودیت ارتفاع برای جلوگیری از خیلی بلند شدن */
+            object-fit: cover;
+            border-radius: 12px; /* گوشه‌های گرد برای زیبایی */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: block;
+        }
+
         /* ============================================== */
-        /* --- تنظیمات ریسپانسیو (پله‌ای و بهینه) --- */
+        /* --- تنظیمات ریسپانسیو --- */
         /* ============================================== */
 
         /* --- تبلت (بین 768px تا 990px) --- */
@@ -127,15 +149,18 @@
             header { padding: 12px 18px; }
             
             .logo-img { 
-                height: 38px; /* اندازه طلایی برای تبلت */
+                height: 38px;
                 max-width: 60%; 
                 object-fit: contain;
             }
 
-            .icon-item { height: 26px; }
-            .icon-user { font-size: 24px; }
-            .icon-house { font-size: 26px; }
-            .header-icons { gap: 14px; }
+            .icon-item { height: 24px; }
+            .icon-user { font-size: 22px; }
+            .icon-house { font-size: 20px; } /* کوچک‌تر در تبلت */
+            .header-icons { gap: 12px; }
+
+            .hero-banner { padding: 0 15px; margin-top: 12px; }
+            .hero-banner img { max-height: 400px; border-radius: 10px; }
         }
 
         /* --- موبایل (کوچک‌تر از 768px) --- */
@@ -143,17 +168,17 @@
             header { padding: 10px 15px; }
             
             .logo-img { 
-                height: 32px; /* کمی کوچک‌تر از قبل تا در موبایل شلوغ نشود */
-                max-width: 65%; /* درصدی تنظیم شد تا بریده نشود */
+                height: 32px;
+                max-width: 65%;
                 width: auto;
                 object-fit: contain; 
             }
 
-            .icon-item { height: 22px; }
-            .icon-user { font-size: 20px; }
-            .icon-house { font-size: 22px; }
-            .sharp-hamburger { width: 22px; height: 16px; }
-            .header-icons { gap: 10px; }
+            .icon-item { height: 20px; }
+            .icon-user { font-size: 18px; }
+            .icon-house { font-size: 17px; } /* کوچک‌تر در موبایل */
+            .sharp-hamburger { width: 20px; height: 15px; }
+            .header-icons { gap: 8px; }
 
             .sharp-hamburger.active span:nth-child(1) {
                 transform: rotate(45deg) translate(4px, 4px);
@@ -162,6 +187,9 @@
             .sharp-hamburger.active span:nth-child(3) {
                 transform: rotate(-45deg) translate(4px, -4px);
             }
+
+            .hero-banner { padding: 0 10px; margin-top: 10px; }
+            .hero-banner img { max-height: 250px; border-radius: 8px; }
         }
     </style>
 </head>
@@ -194,17 +222,11 @@
         </nav>
     </header>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.getElementById('hamburgerBtn');
-            const mobileNav = document.getElementById('mobileNav');
-
-            hamburger.addEventListener('click', function() {
-                this.classList.toggle('active');
-                mobileNav.classList.toggle('open');
-            });
-        });
-    </script>
+    <!-- --- بنر تصویری جدید (بلافاصله بعد از هدر) --- -->
+    <div class="hero-banner">
+        <!-- لینک تصویر خود را در src قرار دهید -->
+        <img src="https://via.placeholder.com/1200x400/2ecc71/ffffff?text=Ferdows+Online+University" alt="Ferdows Banner">
+    </div>
 
 </body>
 </html>
