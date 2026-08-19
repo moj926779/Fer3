@@ -32,7 +32,7 @@
             min-width: 0;
         }
 
-        /* سایز پایه دسکتاپ (لوگو) */
+        /* سایز پایه دسکتاپ (لوگو بزرگ‌تر) */
         .logo-img { 
             height: 40px; 
             width: auto; 
@@ -65,7 +65,7 @@
             transform: scale(1.1) translateY(-2px);
         }
 
-        /* کوچک‌تر کردن آیکون خانه در دسکتاپ */
+        /* آیکون‌ها (خانه کوچک‌تر شد) */
         .icon-user { font-size: 24px; }
         .icon-house { font-size: 22px; } 
 
@@ -124,7 +124,7 @@
         .hero-banner {
             width: 100%;
             margin-top: 15px; /* فاصله کمی از هدر */
-            padding: 0 20px; /* کمی فاصله از کناره‌ها برای زیبایی */
+            padding: 0 20px; /* کمی فاصله از کناره‌ها */
             display: flex;
             justify-content: center;
         }
@@ -133,9 +133,9 @@
             width: 100%;
             max-width: 1200px; /* حداکثر عرض برای مانیتورهای بزرگ */
             height: auto;
-            max-height: 500px; /* محدودیت ارتفاع برای جلوگیری از خیلی بلند شدن */
+            max-height: 500px; /* محدودیت ارتفاع */
             object-fit: cover;
-            border-radius: 12px; /* گوشه‌های گرد برای زیبایی */
+            border-radius: 12px; /* گوشه‌های گرد */
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             display: block;
         }
@@ -198,6 +198,7 @@
     <header>
         <!-- لوگو (چپ) -->
         <div class="brand-wrapper">
+            <!-- مطمئن شوید فایل ferdows.png کنار کد هست -->
             <img src="ferdows.png" alt="Ferdows Logo" class="logo-img">
         </div>
 
@@ -224,8 +225,8 @@
 
     <!-- --- بنر تصویری جدید (بلافاصله بعد از هدر) --- -->
     <div class="hero-banner">
-        <!-- لینک تصویر خود را در src قرار دهید -->
-        <img src="https://via.placeholder.com/1200x400/2ecc71/ffffff?text=Ferdows+Online+University" alt="Ferdows Banner">
+        <!-- عکس خود را با نام banner.jpg کنار فایل HTML ذخیره کنید -->
+        <img src="banner.jpg" alt="Ferdows Banner">
     </div>
 
 </body>
