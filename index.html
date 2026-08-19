@@ -88,7 +88,7 @@
             transition: all 0.3s ease;
         }
 
-        /* --- منوی کشویی موبایل (فقط در صورت نیاز بعداً فعال می‌شود) --- */
+        /* --- منوی کشویی موبایل --- */
         .mobile-nav {
             display: none;
             flex-direction: column;
@@ -117,25 +117,29 @@
 
         .mobile-nav .nav-link:hover { color: #3a4ab0; }
 
-        /* --- تنظیمات موبایل --- */
+        /* --- تنظیمات موبایل (بزرگ‌سازی لوگو و جلوگیری از بریدگی) --- */
         @media (max-width: 990px) {
             header { padding: 10px 15px; }
+            
             .logo-img { 
-                height: 20px;
-                max-width: 120px;
+                height: 40px; /* ارتفاع لوگو افزایش یافت تا بهتر دیده شود */
+                max-width: 70%; /* درصدی تنظیم شد تا در صفحات خیلی باریک بریده نشود */
+                width: auto;
+                object-fit: contain; /* حفظ نسبت ابعاد تصویر */
             }
-            .icon-item { height: 20px; }
-            .icon-user { font-size: 18px; }
-            .icon-house { font-size: 20px; }
-            .sharp-hamburger { width: 20px; height: 16px; }
-            .header-icons { gap: 10px; }
+
+            .icon-item { height: 24px; }
+            .icon-user { font-size: 22px; }
+            .icon-house { font-size: 24px; }
+            .sharp-hamburger { width: 24px; height: 18px; }
+            .header-icons { gap: 12px; }
 
             .sharp-hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(4px, 4px);
+                transform: rotate(45deg) translate(5px, 5px);
             }
             .sharp-hamburger.active span:nth-child(2) { opacity: 0; }
             .sharp-hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(4px, -4px);
+                transform: rotate(-45deg) translate(5px, -5px);
             }
         }
     </style>
@@ -163,9 +167,9 @@
             </button>
         </div>
 
-        <!-- منوی موبایل (فعلاً خالی و مخفی است، در صورت نیاز بعداً لینک‌ها رو اضافه کنید) -->
+        <!-- منوی موبایل -->
         <nav class="mobile-nav" id="mobileNav">
-            <!-- اینجا فعلاً چیزی نیست -->
+            <!-- لینک‌های منو در صورت نیاز اینجا اضافه شوند -->
         </nav>
     </header>
 
