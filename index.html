@@ -31,11 +31,12 @@
             min-width: 0;
         }
 
+        /* --- سایز پایه دسکتاپ (بزرگ‌تر شد) --- */
         .logo-img { 
-            height: 28px; 
+            height: 40px; 
             width: auto; 
             display: block;
-            max-width: 180px;
+            max-width: 280px; /* محدودیت عرض برای جلوگیری از کشیدگی در صفحات عریض */
             object-fit: contain;
         }
 
@@ -117,29 +118,49 @@
 
         .mobile-nav .nav-link:hover { color: #3a4ab0; }
 
-        /* --- تنظیمات موبایل (بزرگ‌سازی لوگو و جلوگیری از بریدگی) --- */
-        @media (max-width: 990px) {
+        /* ============================================== */
+        /* --- تنظیمات ریسپانسیو (پله‌ای و بهینه) --- */
+        /* ============================================== */
+
+        /* --- تبلت (بین 768px تا 990px) --- */
+        @media (min-width: 768px) and (max-width: 990px) {
+            header { padding: 12px 18px; }
+            
+            .logo-img { 
+                height: 38px; /* اندازه طلایی برای تبلت */
+                max-width: 60%; 
+                object-fit: contain;
+            }
+
+            .icon-item { height: 26px; }
+            .icon-user { font-size: 24px; }
+            .icon-house { font-size: 26px; }
+            .header-icons { gap: 14px; }
+        }
+
+        /* --- موبایل (کوچک‌تر از 768px) --- */
+        @media (max-width: 767px) {
             header { padding: 10px 15px; }
             
             .logo-img { 
-                height: 40px; /* ارتفاع لوگو افزایش یافت تا بهتر دیده شود */
-                max-width: 70%; /* درصدی تنظیم شد تا در صفحات خیلی باریک بریده نشود */
+                height: 32px; /* کمی کوچک‌تر از قبل تا در موبایل شلوغ نشود */
+                max-width: 65%; /* درصدی تنظیم شد تا بریده نشود */
                 width: auto;
-                object-fit: contain; /* حفظ نسبت ابعاد تصویر */
+                object-fit: contain; 
             }
 
-            .icon-item { height: 24px; }
-            .icon-user { font-size: 22px; }
-            .icon-house { font-size: 24px; }
-            .sharp-hamburger { width: 24px; height: 18px; }
-            .header-icons { gap: 12px; }
+            .icon-item { height: 22px; }
+            .icon-user { font-size: 20px; }
+            .icon-house { font-size: 22px; }
+            .sharp-hamburger { width: 22px; height: 16px; }
+            .header-icons { gap: 10px; }
 
             .sharp-hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
+                transform: rotate(45deg) translate(4px, 4px);
             }
             .sharp-hamburger.active span:nth-child(2) { opacity: 0; }
             .sharp-hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
+                transform: rotate(-45deg) translate(4px, -4px);
             }
         }
     </style>
