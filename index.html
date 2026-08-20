@@ -1,208 +1,626 @@
 <!DOCTYPE html>
-<html lang="fa" dir="ltr">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferdows Header - Clean & Minimal</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="فردوس؛ مطالب، اطلاعات و محتوای مرتبط با فردوس"
+    >
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <title>فردوس | وب‌سایت فردوس</title>
+
+    <!--
+        فونت Playback
+        فایل playback.woff2 باید دقیقاً کنار index.html باشد.
+        نیازی به پوشه Fonts نیست.
+    -->
     <style>
-        /* --- 1. معرفی فونت اختصاصی Playback (بدون پوشه) --- */
         @font-face {
-            font-family: 'Playback';
-            src: url('playback.woff2') format('woff2'),
-                 url('playback.woff') format('woff'),
-                 url('playback.ttf') format('truetype');
-            font-weight: normal;
+            font-family: "Playback";
+            src: url("./playback.woff2") format("woff2");
+            font-weight: 400;
             font-style: normal;
             font-display: swap;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: #f8f9fa; font-family: 'Segoe UI', sans-serif; }
+        /* ==============================
+           RESET
+        ============================== */
 
-        /* --- تنظیمات هدر --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            width: 100%;
-            background: #ffffff;
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f8f9fa;
+            color: #020c58;
+            font-family: Tahoma, "Segoe UI", sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button {
+            font: inherit;
+        }
+
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        .site-header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+            width: 100%;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 2px 12px rgba(0, 0, 0, 0.06);
         }
 
-        /* --- لوگوی متنی با فونت Playback --- */
-        .brand-wrapper { 
-            display: flex; 
+        .header-inner {
+            width: 100%;
+            min-height: 76px;
+
+            display: flex;
             align-items: center;
-            flex-shrink: 1;
-            min-width: 0;
+            justify-content: space-between;
+
+            padding: 0 24px;
+        }
+
+
+        /* ==============================
+           LOGO
+        ============================== */
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+
+            flex-shrink: 0;
+
+            text-decoration: none;
+
+            color: #020c58;
+
+            line-height: 1;
         }
 
         .brand-text {
-            font-family: 'Playback', sans-serif;
-            font-size: 42px;
-            color: #020c58;
-            letter-spacing: 2px;
-            text-decoration: none;
-            cursor: pointer;
+            display: block;
+
+            font-family: "Playback", sans-serif;
+
+            /*
+             * Desktop
+             */
+            font-size: 40px;
+
+            font-weight: 400;
+
             line-height: 1;
+
+            letter-spacing: 1px;
+
             white-space: nowrap;
         }
 
-        /* --- سمت راست (فقط همبرگر) --- */
-        .header-icons {
+
+        /* ==============================
+           HEADER ACTIONS
+        ============================== */
+
+        .header-actions {
             display: flex;
             align-items: center;
+            justify-content: center;
+
             flex-shrink: 0;
         }
 
-        /* --- منوی همبرگری بزرگ‌تر و ضخیم‌تر --- */
-        .sharp-hamburger {
+
+        /* ==============================
+           HAMBURGER
+        ============================== */
+
+        .menu-toggle {
+            position: relative;
+
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            width: 30px; 
-            height: 22px; 
-            cursor: pointer;
-            border: none;
-            background: transparent;
+
+            width: 36px;
+            height: 26px;
+
             padding: 0;
-            transition: all 0.3s ease;
+
+            border: 0;
+            outline: 0;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            flex-shrink: 0;
+
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .sharp-hamburger span {
+        .menu-toggle span {
             display: block;
+
             width: 100%;
-            height: 3px; 
-            background-color: #020c58;
+            height: 3px;
+
+            background: #020c58;
+
             border-radius: 0;
-            transition: all 0.3s ease;
+
+            transform-origin: center;
+
+            transition:
+                transform 0.25s ease,
+                opacity 0.2s ease;
         }
 
-        .sharp-hamburger:hover {
-            opacity: 0.8;
-            transform: scale(1.05);
+        .menu-toggle:hover {
+            opacity: 0.82;
         }
 
-        /* --- منوی کشویی موبایل --- */
+        .menu-toggle:focus-visible {
+            outline: 2px solid #020c58;
+            outline-offset: 6px;
+        }
+
+
+        /* ==============================
+           HAMBURGER → X
+        ============================== */
+
+        .menu-toggle.is-open span:nth-child(1) {
+            transform: translateY(11.5px) rotate(45deg);
+        }
+
+        .menu-toggle.is-open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.is-open span:nth-child(3) {
+            transform: translateY(-11.5px) rotate(-45deg);
+        }
+
+
+        /* ==============================
+           MOBILE NAV
+        ============================== */
+
         .mobile-nav {
-            display: none;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-            background: #ffffff;
-            padding: 15px 20px;
-            width: 100%;
             position: absolute;
-            top: 65px;
+
+            top: 100%;
+            right: 0;
             left: 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border-top: 1px solid #eaeaea;
-            z-index: 999;
-        }
 
-        .mobile-nav.open { display: flex; }
-        
-        .mobile-nav .nav-link {
-            text-decoration: none;
-            color: #020c58;
-            font-size: 17px;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        .mobile-nav .nav-link:hover { color: #3a4ab0; }
-
-        /* --- بنر تصویری --- */
-        .hero-banner {
-            width: 100%;
-            margin-top: 15px;
-            padding: 0 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+
+            gap: 0;
+
+            padding: 8px 24px 16px;
+
+            background: #ffffff;
+
+            border-top: 1px solid #eeeeee;
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.07);
+
+            visibility: hidden;
+            opacity: 0;
+
+            transform: translateY(-8px);
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.2s ease,
+                transform 0.2s ease,
+                visibility 0.2s ease;
         }
 
-        .hero-banner img {
-            width: 100%;
-            max-width: 1200px;
-            height: auto;
-            max-height: 500px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        .mobile-nav.is-open {
+            visibility: visible;
+            opacity: 1;
+
+            transform: translateY(0);
+
+            pointer-events: auto;
+        }
+
+        .mobile-nav a {
             display: block;
+
+            padding: 10px 0;
+
+            color: #020c58;
+
+            text-decoration: none;
+
+            font-size: 16px;
+            font-weight: 500;
+
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        /* ============================================== */
-        /* --- تنظیمات ریسپانسیو --- */
-        /* ============================================== */
-
-        /* --- تبلت --- */
-        @media (min-width: 768px) and (max-width: 990px) {
-            header { padding: 12px 18px; }
-            .brand-text { font-size: 36px; }
-            .sharp-hamburger { width: 28px; height: 20px; }
-            .sharp-hamburger span { height: 3px; }
-            .hero-banner { padding: 0 15px; margin-top: 12px; }
-            .hero-banner img { max-height: 400px; border-radius: 10px; }
+        .mobile-nav a:last-child {
+            border-bottom: 0;
         }
 
-        /* --- موبایل --- */
+        .mobile-nav a:hover {
+            color: #3046a5;
+        }
+
+
+        /* ==============================
+           MAIN
+        ============================== */
+
+        main {
+            width: 100%;
+        }
+
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            width: 100%;
+
+            padding: 20px 24px 0;
+        }
+
+        .hero-inner {
+            width: 100%;
+            max-width: 1400px;
+
+            margin: 0 auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+
+            border-radius: 12px;
+
+            object-fit: contain;
+
+            box-shadow:
+                0 4px 18px rgba(0, 0, 0, 0.07);
+        }
+
+
+        /* ==============================
+           TABLET
+           768px - 1023px
+        ============================== */
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+
+            .header-inner {
+                min-height: 68px;
+
+                padding: 0 20px;
+            }
+
+            .brand-text {
+                font-size: 34px;
+                letter-spacing: 1px;
+            }
+
+            .menu-toggle {
+                width: 32px;
+                height: 23px;
+            }
+
+            .menu-toggle span {
+                height: 3px;
+            }
+
+            .menu-toggle.is-open span:nth-child(1) {
+                transform: translateY(10px) rotate(45deg);
+            }
+
+            .menu-toggle.is-open span:nth-child(3) {
+                transform: translateY(-10px) rotate(-45deg);
+            }
+
+            .mobile-nav {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .hero {
+                padding: 16px 18px 0;
+            }
+
+            .hero-image {
+                border-radius: 10px;
+            }
+        }
+
+
+        /* ==============================
+           MOBILE
+           0 - 767px
+        ============================== */
+
         @media (max-width: 767px) {
-            header { padding: 10px 15px; }
-            .brand-text { font-size: 28px; letter-spacing: 1px; }
-            .sharp-hamburger { width: 26px; height: 18px; }
-            .sharp-hamburger span { height: 3px; }
 
-            .sharp-hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            .sharp-hamburger.active span:nth-child(2) { opacity: 0; }
-            .sharp-hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
+            .header-inner {
+                min-height: 58px;
+
+                padding: 0 15px;
             }
 
-            .mobile-nav { top: 58px; }
-            .hero-banner { padding: 0 10px; margin-top: 10px; }
-            .hero-banner img { max-height: 250px; border-radius: 8px; }
+            .brand-text {
+                font-size: 27px;
+                letter-spacing: 0.5px;
+            }
+
+            .menu-toggle {
+                width: 27px;
+                height: 19px;
+            }
+
+            .menu-toggle span {
+                height: 3px;
+            }
+
+            .menu-toggle.is-open span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .menu-toggle.is-open span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .mobile-nav {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .mobile-nav a {
+                font-size: 15px;
+            }
+
+            .hero {
+                padding: 10px 10px 0;
+            }
+
+            .hero-image {
+                border-radius: 8px;
+                box-shadow:
+                    0 3px 12px rgba(0, 0, 0, 0.06);
+            }
+        }
+
+
+        /* ==============================
+           REDUCE MOTION
+        ============================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <!-- لوگوی متنی (به جای تصویر) -->
-        <div class="brand-wrapper">
-            <a href="#" class="brand-text">FERDOWS</a>
+    <!-- ==============================
+         HEADER
+    ============================== -->
+
+    <header class="site-header">
+
+        <div class="header-inner">
+
+            <!-- Logo -->
+            <a
+                href="/"
+                class="brand"
+                aria-label="صفحه اصلی فردوس"
+            >
+                <span class="brand-text">
+                    FERDOWS
+                </span>
+            </a>
+
+
+            <!-- Hamburger -->
+            <div class="header-actions">
+
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="باز کردن منو"
+                    aria-expanded="false"
+                    aria-controls="mobileNav"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
         </div>
 
-        <!-- سمت راست: فقط همبرگر -->
-        <div class="header-icons">
-            <button class="sharp-hamburger" id="hamburgerBtn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
 
-        <!-- منوی موبایل -->
-        <nav class="mobile-nav" id="mobileNav">
-            <a href="#" class="nav-link">صفحه اصلی</a>
-            <a href="#" class="nav-link">درباره ما</a>
-            <a href="#" class="nav-link">تماس با ما</a>
+        <!-- Navigation -->
+        <nav
+            class="mobile-nav"
+            id="mobileNav"
+            aria-label="منوی اصلی"
+            aria-hidden="true"
+        >
+            <a href="/">صفحه اصلی</a>
+            <a href="/about/">درباره ما</a>
+            <a href="/contact/">تماس با ما</a>
         </nav>
+
     </header>
 
-    <!-- بنر تصویری -->
-    <div class="hero-banner">
-        <img src="banner.jpg" alt="Ferdows Banner">
-    </div>
+
+    <!-- ==============================
+         MAIN CONTENT
+    ============================== -->
+
+    <main>
+
+        <section
+            class="hero"
+            aria-labelledby="hero-title"
+        >
+
+            <div class="hero-inner">
+
+                <h1
+                    id="hero-title"
+                    hidden
+                >
+                    فردوس
+                </h1>
+
+                <img
+                    class="hero-image"
+                    src="./banner.jpg"
+                    alt="فردوس؛ کتاب و فنجان قهوه در فضایی برای مطالعه"
+                    width="1280"
+                    height="720"
+                    fetchpriority="high"
+                >
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    ============================== -->
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileNav = document.getElementById("mobileNav");
+
+        menuToggle.addEventListener("click", function () {
+
+            const isOpen =
+                menuToggle.classList.toggle("is-open");
+
+            mobileNav.classList.toggle("is-open", isOpen);
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "بستن منو"
+                    : "باز کردن منو"
+            );
+
+            mobileNav.setAttribute(
+                "aria-hidden",
+                String(!isOpen)
+            );
+        });
+
+
+        /*
+         * بستن منو با فشردن Escape
+         */
+        document.addEventListener("keydown", function (event) {
+
+            if (
+                event.key === "Escape" &&
+                menuToggle.classList.contains("is-open")
+            ) {
+                menuToggle.click();
+                menuToggle.focus();
+            }
+
+        });
+
+
+        /*
+         * بستن منو بعد از کلیک روی لینک
+         */
+        mobileNav
+            .querySelectorAll("a")
+            .forEach(function (link) {
+
+                link.addEventListener("click", function () {
+
+                    if (
+                        menuToggle.classList.contains("is-open")
+                    ) {
+                        menuToggle.click();
+                    }
+
+                });
+
+            });
+    </script>
 
 </body>
 </html>
