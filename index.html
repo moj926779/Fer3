@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
+        /* --- 1. معرفی فونت اختصاصی Playback (بدون پوشه) --- */
+        @font-face {
+            font-family: 'Playback';
+            src: url('playback.woff2') format('woff2'),
+                 url('playback.woff') format('woff'),
+                 url('playback.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: #f8f9fa; font-family: 'Segoe UI', sans-serif; }
 
@@ -25,6 +36,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
+        /* --- لوگوی متنی با فونت Playback --- */
         .brand-wrapper { 
             display: flex; 
             align-items: center;
@@ -32,16 +44,18 @@
             min-width: 0;
         }
 
-        .logo-img { 
-            height: 40px; 
-            width: auto; 
-            display: block;
-            max-width: 280px;
-            object-fit: contain;
+        .brand-text {
+            font-family: 'Playback', sans-serif;
+            font-size: 42px;
+            color: #020c58;
+            letter-spacing: 2px;
+            text-decoration: none;
             cursor: pointer;
+            line-height: 1;
+            white-space: nowrap;
         }
 
-        /* --- تنظیمات سمت راست (فقط همبرگر) --- */
+        /* --- سمت راست (فقط همبرگر) --- */
         .header-icons {
             display: flex;
             align-items: center;
@@ -53,8 +67,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            width: 30px;  /* از 24px به 30px افزایش یافت */
-            height: 22px; /* از 18px به 22px افزایش یافت */
+            width: 30px; 
+            height: 22px; 
             cursor: pointer;
             border: none;
             background: transparent;
@@ -65,7 +79,7 @@
         .sharp-hamburger span {
             display: block;
             width: 100%;
-            height: 3px; /* ضخامت خطوط از 2px به 3px افزایش یافت */
+            height: 3px; 
             background-color: #020c58;
             border-radius: 0;
             transition: all 0.3s ease;
@@ -73,7 +87,7 @@
 
         .sharp-hamburger:hover {
             opacity: 0.8;
-            transform: scale(1.05); /* افکت بزرگ‌شدن جزئی هنگام هاور */
+            transform: scale(1.05);
         }
 
         /* --- منوی کشویی موبایل --- */
@@ -129,34 +143,20 @@
         /* --- تنظیمات ریسپانسیو --- */
         /* ============================================== */
 
-        /* --- تبلت (بین 768px تا 990px) --- */
+        /* --- تبلت --- */
         @media (min-width: 768px) and (max-width: 990px) {
             header { padding: 12px 18px; }
-            
-            .logo-img { 
-                height: 38px;
-                max-width: 60%; 
-                object-fit: contain;
-            }
-
+            .brand-text { font-size: 36px; }
             .sharp-hamburger { width: 28px; height: 20px; }
             .sharp-hamburger span { height: 3px; }
-
             .hero-banner { padding: 0 15px; margin-top: 12px; }
             .hero-banner img { max-height: 400px; border-radius: 10px; }
         }
 
-        /* --- موبایل (کوچک‌تر از 768px) --- */
+        /* --- موبایل --- */
         @media (max-width: 767px) {
             header { padding: 10px 15px; }
-            
-            .logo-img { 
-                height: 32px;
-                max-width: 65%;
-                width: auto;
-                object-fit: contain; 
-            }
-
+            .brand-text { font-size: 28px; letter-spacing: 1px; }
             .sharp-hamburger { width: 26px; height: 18px; }
             .sharp-hamburger span { height: 3px; }
 
@@ -169,7 +169,6 @@
             }
 
             .mobile-nav { top: 58px; }
-
             .hero-banner { padding: 0 10px; margin-top: 10px; }
             .hero-banner img { max-height: 250px; border-radius: 8px; }
         }
@@ -178,12 +177,12 @@
 <body>
 
     <header>
-        <!-- لوگو (چپ) -->
+        <!-- لوگوی متنی (به جای تصویر) -->
         <div class="brand-wrapper">
-            <img src="ferdows.png" alt="Ferdows Logo" class="logo-img">
+            <a href="#" class="brand-text">FERDOWS</a>
         </div>
 
-        <!-- سمت راست: فقط همبرگر (آیکون‌ها حذف شدند) -->
+        <!-- سمت راست: فقط همبرگر -->
         <div class="header-icons">
             <button class="sharp-hamburger" id="hamburgerBtn">
                 <span></span>
@@ -194,7 +193,6 @@
 
         <!-- منوی موبایل -->
         <nav class="mobile-nav" id="mobileNav">
-            <!-- می‌توانید لینک‌های منوی خود را اینجا اضافه کنید -->
             <a href="#" class="nav-link">صفحه اصلی</a>
             <a href="#" class="nav-link">درباره ما</a>
             <a href="#" class="nav-link">تماس با ما</a>
