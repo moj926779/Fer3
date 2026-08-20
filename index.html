@@ -31,6 +31,7 @@
 
         /* ==================================================
            FONT
+           playback.woff2 باید کنار index.html باشد.
         ================================================== */
 
         @font-face {
@@ -100,8 +101,7 @@
            
            کل سایت RTL است،
            اما Header عمداً LTR است.
-           
-           بنابراین:
+
            لوگو = چپ
            همبرگر = راست
         ================================================== */
@@ -149,6 +149,10 @@
 
         /* ==================================================
            LOGO
+           
+           Optical alignment:
+           لوگو عمداً مقدار بسیار کمی تنظیم شده است
+           تا با خطوط همبرگر از نظر بصری هم‌تراز شود.
         ================================================== */
 
         .brand {
@@ -165,6 +169,11 @@
             text-decoration: none;
 
             line-height: 1;
+
+            /*
+             * Optical alignment
+             */
+            transform: translateY(1px);
         }
 
 
@@ -186,7 +195,8 @@
 
 
         .brand:focus-visible {
-            outline: 2px solid #020c58;
+            outline:
+                2px solid #020c58;
 
             outline-offset: 6px;
         }
@@ -209,6 +219,10 @@
 
         /* ==================================================
            HAMBURGER
+           
+           ارتفاع خطوط و فاصله‌ها طوری تنظیم شده
+           که مجموعه همبرگر از نظر بصری با لوگو
+           هماهنگ باشد.
         ================================================== */
 
         .menu-toggle {
@@ -222,7 +236,7 @@
 
             width: 36px;
 
-            height: 26px;
+            height: 24px;
 
             padding: 0;
 
@@ -236,6 +250,11 @@
 
             flex-shrink: 0;
 
+            /*
+             * Optical alignment
+             */
+            transform: translateY(-1px);
+
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -246,6 +265,8 @@
             width: 100%;
 
             height: 3px;
+
+            flex-shrink: 0;
 
             background-color: #020c58;
 
@@ -265,7 +286,8 @@
 
 
         .menu-toggle:focus-visible {
-            outline: 2px solid #020c58;
+            outline:
+                2px solid #020c58;
 
             outline-offset: 6px;
         }
@@ -277,7 +299,7 @@
 
         .menu-toggle.is-open span:nth-child(1) {
             transform:
-                translateY(11.5px)
+                translateY(10.5px)
                 rotate(45deg);
         }
 
@@ -289,7 +311,7 @@
 
         .menu-toggle.is-open span:nth-child(3) {
             transform:
-                translateY(-11.5px)
+                translateY(-10.5px)
                 rotate(-45deg);
         }
 
@@ -297,8 +319,8 @@
         /* ==================================================
            MOBILE NAV
            
-           خود Header LTR است،
-           اما محتوای منو فارسی و RTL است.
+           Header = LTR
+           Navigation content = RTL
         ================================================== */
 
         .mobile-nav {
@@ -462,6 +484,12 @@
             }
 
 
+            .brand {
+                transform:
+                    translateY(1px);
+            }
+
+
             .brand-text {
                 font-size: 34px;
 
@@ -472,7 +500,10 @@
             .menu-toggle {
                 width: 32px;
 
-                height: 23px;
+                height: 22px;
+
+                transform:
+                    translateY(-1px);
             }
 
 
@@ -483,14 +514,14 @@
 
             .menu-toggle.is-open span:nth-child(1) {
                 transform:
-                    translateY(10px)
+                    translateY(9.5px)
                     rotate(45deg);
             }
 
 
             .menu-toggle.is-open span:nth-child(3) {
                 transform:
-                    translateY(-10px)
+                    translateY(-9.5px)
                     rotate(-45deg);
             }
 
@@ -529,6 +560,17 @@
             }
 
 
+            /*
+             * لوگو
+             *
+             * +1px برای Optical Alignment
+             */
+            .brand {
+                transform:
+                    translateY(1px);
+            }
+
+
             .brand-text {
                 font-size: 27px;
 
@@ -536,10 +578,18 @@
             }
 
 
+            /*
+             * همبرگر
+             *
+             * -1px برای Optical Alignment
+             */
             .menu-toggle {
                 width: 27px;
 
-                height: 19px;
+                height: 18px;
+
+                transform:
+                    translateY(-1px);
             }
 
 
@@ -550,14 +600,14 @@
 
             .menu-toggle.is-open span:nth-child(1) {
                 transform:
-                    translateY(8px)
+                    translateY(7.5px)
                     rotate(45deg);
             }
 
 
             .menu-toggle.is-open span:nth-child(3) {
                 transform:
-                    translateY(-8px)
+                    translateY(-7.5px)
                     rotate(-45deg);
             }
 
@@ -621,36 +671,33 @@
          HEADER
     ================================================== -->
 
-    <header
-        class="site-header"
-    >
+    <header class="site-header">
 
-        <div
-            class="header-inner"
-        >
+        <div class="header-inner">
 
-            <!-- =========================
+
+            <!-- ==================================================
                  LOGO - LEFT
-            ========================== -->
+            ================================================== -->
 
             <a
                 href="/"
                 class="brand"
                 aria-label="صفحه اصلی فردوس"
             >
+
                 <span class="brand-text">
                     FERDOWS
                 </span>
+
             </a>
 
 
-            <!-- =========================
+            <!-- ==================================================
                  HAMBURGER - RIGHT
-            ========================== -->
+            ================================================== -->
 
-            <div
-                class="header-actions"
-            >
+            <div class="header-actions">
 
                 <button
                     type="button"
@@ -676,7 +723,6 @@
 
         <!-- ==================================================
              MOBILE NAV
-             این قسمت فارسی و RTL است.
         ================================================== -->
 
         <nav
@@ -704,7 +750,7 @@
 
 
     <!-- ==================================================
-         MAIN CONTENT
+         MAIN
     ================================================== -->
 
     <main>
@@ -714,20 +760,9 @@
             aria-labelledby="hero-title"
         >
 
-            <div
-                class="hero-inner"
-            >
+            <div class="hero-inner">
 
-                <!--
-                    H1 برای SEO
-                    hidden است چون عنوان بصری
-                    داخل Banner قرار دارد.
-                -->
-
-                <h1
-                    id="hero-title"
-                    hidden
-                >
+                <h1 id="hero-title" hidden>
                     فردوس
                 </h1>
 
@@ -805,7 +840,7 @@
 
 
         /* ==================================================
-           CLOSE WITH ESCAPE
+           ESCAPE
         ================================================== */
 
         document.addEventListener(
@@ -830,7 +865,7 @@
 
 
         /* ==================================================
-           CLOSE AFTER CLICKING NAV LINK
+           CLOSE AFTER NAVIGATION
         ================================================== */
 
         mobileNav
