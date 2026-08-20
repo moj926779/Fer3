@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
 
@@ -10,21 +11,28 @@
 
     <meta
         name="description"
-        content="فردوس؛ مطالب، اطلاعات و محتوای مرتبط با فردوس"
+        content="فردوس؛ وب‌سایت فردوس با مطالب، اطلاعات و محتوای مرتبط با فردوس."
     >
 
-    <meta name="robots" content="index, follow">
+    <meta
+        name="robots"
+        content="index, follow"
+    >
 
-    <meta name="theme-color" content="#ffffff">
+    <meta
+        name="theme-color"
+        content="#ffffff"
+    >
 
     <title>فردوس | وب‌سایت فردوس</title>
 
-    <!--
-        فونت Playback
-        فایل playback.woff2 باید دقیقاً کنار index.html باشد.
-        نیازی به پوشه Fonts نیست.
-    -->
+
     <style>
+
+        /* ==================================================
+           FONT
+        ================================================== */
+
         @font-face {
             font-family: "Playback";
             src: url("./playback.woff2") format("woff2");
@@ -33,9 +41,10 @@
             font-display: swap;
         }
 
-        /* ==============================
+
+        /* ==================================================
            RESET
-        ============================== */
+        ================================================== */
 
         *,
         *::before,
@@ -45,87 +54,125 @@
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
             min-height: 100vh;
-            background: #f8f9fa;
+
+            background-color: #f8f9fa;
+
             color: #020c58;
-            font-family: Tahoma, "Segoe UI", sans-serif;
+
+            font-family:
+                Tahoma,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
             line-height: 1.6;
+
             overflow-x: hidden;
         }
+
 
         img {
             display: block;
             max-width: 100%;
         }
 
+
         a {
             color: inherit;
         }
+
 
         button {
             font: inherit;
         }
 
 
-        /* ==============================
+        /* ==================================================
            HEADER
-        ============================== */
+           
+           کل سایت RTL است،
+           اما Header عمداً LTR است.
+           
+           بنابراین:
+           لوگو = چپ
+           همبرگر = راست
+        ================================================== */
 
         .site-header {
             position: sticky;
+
             top: 0;
+
             z-index: 1000;
 
             width: 100%;
 
-            background: #ffffff;
+            background-color: #ffffff;
+
+            direction: ltr;
 
             box-shadow:
                 0 2px 12px rgba(0, 0, 0, 0.06);
         }
 
+
+        /* ==================================================
+           HEADER INNER
+        ================================================== */
+
         .header-inner {
             width: 100%;
+
             min-height: 76px;
 
             display: flex;
+
+            flex-direction: row;
+
             align-items: center;
+
             justify-content: space-between;
 
             padding: 0 24px;
+
+            direction: ltr;
         }
 
 
-        /* ==============================
+        /* ==================================================
            LOGO
-        ============================== */
+        ================================================== */
 
         .brand {
             display: inline-flex;
+
             align-items: center;
+
+            justify-content: flex-start;
 
             flex-shrink: 0;
 
-            text-decoration: none;
-
             color: #020c58;
+
+            text-decoration: none;
 
             line-height: 1;
         }
+
 
         .brand-text {
             display: block;
 
             font-family: "Playback", sans-serif;
 
-            /*
-             * Desktop
-             */
             font-size: 40px;
 
             font-weight: 400;
@@ -138,36 +185,49 @@
         }
 
 
-        /* ==============================
+        .brand:focus-visible {
+            outline: 2px solid #020c58;
+
+            outline-offset: 6px;
+        }
+
+
+        /* ==================================================
            HEADER ACTIONS
-        ============================== */
+        ================================================== */
 
         .header-actions {
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             flex-shrink: 0;
         }
 
 
-        /* ==============================
+        /* ==================================================
            HAMBURGER
-        ============================== */
+        ================================================== */
 
         .menu-toggle {
             position: relative;
 
             display: flex;
+
             flex-direction: column;
+
             justify-content: space-between;
 
             width: 36px;
+
             height: 26px;
 
             padding: 0;
 
             border: 0;
+
             outline: 0;
 
             background: transparent;
@@ -179,13 +239,15 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+
         .menu-toggle span {
             display: block;
 
             width: 100%;
+
             height: 3px;
 
-            background: #020c58;
+            background-color: #020c58;
 
             border-radius: 0;
 
@@ -196,64 +258,90 @@
                 opacity 0.2s ease;
         }
 
+
         .menu-toggle:hover {
-            opacity: 0.82;
+            opacity: 0.8;
         }
+
 
         .menu-toggle:focus-visible {
             outline: 2px solid #020c58;
+
             outline-offset: 6px;
         }
 
 
-        /* ==============================
+        /* ==================================================
            HAMBURGER → X
-        ============================== */
+        ================================================== */
 
         .menu-toggle.is-open span:nth-child(1) {
-            transform: translateY(11.5px) rotate(45deg);
+            transform:
+                translateY(11.5px)
+                rotate(45deg);
         }
+
 
         .menu-toggle.is-open span:nth-child(2) {
             opacity: 0;
         }
 
+
         .menu-toggle.is-open span:nth-child(3) {
-            transform: translateY(-11.5px) rotate(-45deg);
+            transform:
+                translateY(-11.5px)
+                rotate(-45deg);
         }
 
 
-        /* ==============================
+        /* ==================================================
            MOBILE NAV
-        ============================== */
+           
+           خود Header LTR است،
+           اما محتوای منو فارسی و RTL است.
+        ================================================== */
 
         .mobile-nav {
             position: absolute;
 
             top: 100%;
+
             right: 0;
+
             left: 0;
 
             display: flex;
+
             flex-direction: column;
 
             gap: 0;
 
-            padding: 8px 24px 16px;
+            width: 100%;
 
-            background: #ffffff;
+            padding:
+                8px 24px 16px;
 
-            border-top: 1px solid #eeeeee;
+            background-color: #ffffff;
 
-            box-shadow:
-                0 8px 20px rgba(0, 0, 0, 0.07);
+            border-top:
+                1px solid #eeeeee;
+
+            direction: rtl;
+
+            text-align: right;
 
             visibility: hidden;
+
             opacity: 0;
 
-            transform: translateY(-8px);
+            transform:
+                translateY(-8px);
 
             pointer-events: none;
+
+            box-shadow:
+                0 8px 20px
+                rgba(0, 0, 0, 0.07);
 
             transition:
                 opacity 0.2s ease,
@@ -261,8 +349,10 @@
                 visibility 0.2s ease;
         }
 
+
         .mobile-nav.is-open {
             visibility: visible;
+
             opacity: 1;
 
             transform: translateY(0);
@@ -270,112 +360,153 @@
             pointer-events: auto;
         }
 
+
         .mobile-nav a {
             display: block;
 
-            padding: 10px 0;
+            width: 100%;
+
+            padding: 11px 0;
 
             color: #020c58;
 
-            text-decoration: none;
-
             font-size: 16px;
+
             font-weight: 500;
 
-            border-bottom: 1px solid #f0f0f0;
+            line-height: 1.6;
+
+            text-align: right;
+
+            text-decoration: none;
+
+            border-bottom:
+                1px solid #f0f0f0;
+
+            transition:
+                color 0.2s ease;
         }
+
 
         .mobile-nav a:last-child {
             border-bottom: 0;
         }
+
 
         .mobile-nav a:hover {
             color: #3046a5;
         }
 
 
-        /* ==============================
+        /* ==================================================
            MAIN
-        ============================== */
+        ================================================== */
 
         main {
             width: 100%;
+
+            direction: rtl;
         }
 
 
-        /* ==============================
+        /* ==================================================
            HERO
-        ============================== */
+        ================================================== */
 
         .hero {
             width: 100%;
 
-            padding: 20px 24px 0;
+            padding:
+                20px 24px 0;
         }
+
 
         .hero-inner {
             width: 100%;
+
             max-width: 1400px;
 
-            margin: 0 auto;
+            margin:
+                0 auto;
         }
 
+
         .hero-image {
+            display: block;
+
             width: 100%;
+
             height: auto;
 
             border-radius: 12px;
 
-            object-fit: contain;
-
             box-shadow:
-                0 4px 18px rgba(0, 0, 0, 0.07);
+                0 4px 18px
+                rgba(0, 0, 0, 0.07);
         }
 
 
-        /* ==============================
+        /* ==================================================
            TABLET
-           768px - 1023px
-        ============================== */
+           768px تا 1023px
+        ================================================== */
 
-        @media (min-width: 768px) and (max-width: 1023px) {
+        @media (min-width: 768px)
+        and (max-width: 1023px) {
 
             .header-inner {
                 min-height: 68px;
 
-                padding: 0 20px;
+                padding:
+                    0 20px;
             }
+
 
             .brand-text {
                 font-size: 34px;
+
                 letter-spacing: 1px;
             }
 
+
             .menu-toggle {
                 width: 32px;
+
                 height: 23px;
             }
+
 
             .menu-toggle span {
                 height: 3px;
             }
 
+
             .menu-toggle.is-open span:nth-child(1) {
-                transform: translateY(10px) rotate(45deg);
+                transform:
+                    translateY(10px)
+                    rotate(45deg);
             }
 
+
             .menu-toggle.is-open span:nth-child(3) {
-                transform: translateY(-10px) rotate(-45deg);
+                transform:
+                    translateY(-10px)
+                    rotate(-45deg);
             }
+
 
             .mobile-nav {
                 padding-left: 20px;
+
                 padding-right: 20px;
             }
 
+
             .hero {
-                padding: 16px 18px 0;
+                padding:
+                    16px 18px 0;
             }
+
 
             .hero-image {
                 border-radius: 10px;
@@ -383,65 +514,87 @@
         }
 
 
-        /* ==============================
+        /* ==================================================
            MOBILE
-           0 - 767px
-        ============================== */
+           0 تا 767px
+        ================================================== */
 
         @media (max-width: 767px) {
 
             .header-inner {
                 min-height: 58px;
 
-                padding: 0 15px;
+                padding:
+                    0 15px;
             }
+
 
             .brand-text {
                 font-size: 27px;
+
                 letter-spacing: 0.5px;
             }
 
+
             .menu-toggle {
                 width: 27px;
+
                 height: 19px;
             }
+
 
             .menu-toggle span {
                 height: 3px;
             }
 
+
             .menu-toggle.is-open span:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
+                transform:
+                    translateY(8px)
+                    rotate(45deg);
             }
+
 
             .menu-toggle.is-open span:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
+                transform:
+                    translateY(-8px)
+                    rotate(-45deg);
             }
+
 
             .mobile-nav {
-                padding-left: 15px;
-                padding-right: 15px;
+                padding:
+                    7px 15px 14px;
             }
 
+
             .mobile-nav a {
+                padding:
+                    10px 0;
+
                 font-size: 15px;
             }
 
+
             .hero {
-                padding: 10px 10px 0;
+                padding:
+                    10px 10px 0;
             }
+
 
             .hero-image {
                 border-radius: 8px;
+
                 box-shadow:
-                    0 3px 12px rgba(0, 0, 0, 0.06);
+                    0 3px 12px
+                    rgba(0, 0, 0, 0.06);
             }
         }
 
 
-        /* ==============================
-           REDUCE MOTION
-        ============================== */
+        /* ==================================================
+           REDUCED MOTION
+        ================================================== */
 
         @media (prefers-reduced-motion: reduce) {
 
@@ -449,26 +602,37 @@
                 scroll-behavior: auto;
             }
 
+
             *,
             *::before,
             *::after {
                 transition: none !important;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- ==============================
+
+    <!-- ==================================================
          HEADER
-    ============================== -->
+    ================================================== -->
 
-    <header class="site-header">
+    <header
+        class="site-header"
+    >
 
-        <div class="header-inner">
+        <div
+            class="header-inner"
+        >
 
-            <!-- Logo -->
+            <!-- =========================
+                 LOGO - LEFT
+            ========================== -->
+
             <a
                 href="/"
                 class="brand"
@@ -480,8 +644,13 @@
             </a>
 
 
-            <!-- Hamburger -->
-            <div class="header-actions">
+            <!-- =========================
+                 HAMBURGER - RIGHT
+            ========================== -->
+
+            <div
+                class="header-actions"
+            >
 
                 <button
                     type="button"
@@ -491,9 +660,13 @@
                     aria-expanded="false"
                     aria-controls="mobileNav"
                 >
+
                     <span></span>
+
                     <span></span>
+
                     <span></span>
+
                 </button>
 
             </div>
@@ -501,24 +674,38 @@
         </div>
 
 
-        <!-- Navigation -->
+        <!-- ==================================================
+             MOBILE NAV
+             این قسمت فارسی و RTL است.
+        ================================================== -->
+
         <nav
             class="mobile-nav"
             id="mobileNav"
             aria-label="منوی اصلی"
             aria-hidden="true"
         >
-            <a href="/">صفحه اصلی</a>
-            <a href="/about/">درباره ما</a>
-            <a href="/contact/">تماس با ما</a>
+
+            <a href="/">
+                صفحه اصلی
+            </a>
+
+            <a href="/about/">
+                درباره ما
+            </a>
+
+            <a href="/contact/">
+                تماس با ما
+            </a>
+
         </nav>
 
     </header>
 
 
-    <!-- ==============================
+    <!-- ==================================================
          MAIN CONTENT
-    ============================== -->
+    ================================================== -->
 
     <main>
 
@@ -527,7 +714,15 @@
             aria-labelledby="hero-title"
         >
 
-            <div class="hero-inner">
+            <div
+                class="hero-inner"
+            >
+
+                <!--
+                    H1 برای SEO
+                    hidden است چون عنوان بصری
+                    داخل Banner قرار دارد.
+                -->
 
                 <h1
                     id="hero-title"
@@ -535,6 +730,7 @@
                 >
                     فردوس
                 </h1>
+
 
                 <img
                     class="hero-image"
@@ -552,75 +748,118 @@
     </main>
 
 
-    <!-- ==============================
+    <!-- ==================================================
          JAVASCRIPT
-    ============================== -->
+    ================================================== -->
 
     <script>
-        const menuToggle = document.getElementById("menuToggle");
-        const mobileNav = document.getElementById("mobileNav");
 
-        menuToggle.addEventListener("click", function () {
+        const menuToggle =
+            document.getElementById("menuToggle");
 
-            const isOpen =
-                menuToggle.classList.toggle("is-open");
-
-            mobileNav.classList.toggle("is-open", isOpen);
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
-
-            menuToggle.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "بستن منو"
-                    : "باز کردن منو"
-            );
-
-            mobileNav.setAttribute(
-                "aria-hidden",
-                String(!isOpen)
-            );
-        });
+        const mobileNav =
+            document.getElementById("mobileNav");
 
 
-        /*
-         * بستن منو با فشردن Escape
-         */
-        document.addEventListener("keydown", function (event) {
+        /* ==================================================
+           OPEN / CLOSE MENU
+        ================================================== */
 
-            if (
-                event.key === "Escape" &&
-                menuToggle.classList.contains("is-open")
-            ) {
-                menuToggle.click();
-                menuToggle.focus();
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                const isOpen =
+                    menuToggle.classList.toggle(
+                        "is-open"
+                    );
+
+
+                mobileNav.classList.toggle(
+                    "is-open",
+                    isOpen
+                );
+
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    isOpen
+                        ? "بستن منو"
+                        : "باز کردن منو"
+                );
+
+
+                mobileNav.setAttribute(
+                    "aria-hidden",
+                    String(!isOpen)
+                );
+
             }
+        );
 
-        });
+
+        /* ==================================================
+           CLOSE WITH ESCAPE
+        ================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    menuToggle.classList.contains(
+                        "is-open"
+                    )
+                ) {
+
+                    menuToggle.click();
+
+                    menuToggle.focus();
+
+                }
+
+            }
+        );
 
 
-        /*
-         * بستن منو بعد از کلیک روی لینک
-         */
+        /* ==================================================
+           CLOSE AFTER CLICKING NAV LINK
+        ================================================== */
+
         mobileNav
             .querySelectorAll("a")
-            .forEach(function (link) {
+            .forEach(
+                function (link) {
 
-                link.addEventListener("click", function () {
+                    link.addEventListener(
+                        "click",
+                        function () {
 
-                    if (
-                        menuToggle.classList.contains("is-open")
-                    ) {
-                        menuToggle.click();
-                    }
+                            if (
+                                menuToggle.classList.contains(
+                                    "is-open"
+                                )
+                            ) {
 
-                });
+                                menuToggle.click();
 
-            });
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
     </script>
 
 </body>
+
 </html>
